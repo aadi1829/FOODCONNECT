@@ -1,9 +1,7 @@
 
 import './App.css'
 import { Routes, Route, Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 import AIChat from './pages/AIChat'
-import { API_BASE_URL } from './config'
 
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -19,51 +17,6 @@ import MyRequests from './pages/ngo/MyRequests'
 // =========================
 
 function Home() {
-  const [backendMessage, setBackendMessage] = useState(
-    'Connecting to backend...'
-  )
-
-  useEffect(() => {
-    const controller = new AbortController()
-
-    async function checkBackend() {
-      try {
-        const response = await fetch(
-          `${API_BASE_URL}/api/hello`,
-          {
-            method: 'GET',
-            headers: {
-              Accept: 'text/plain'
-            },
-            signal: controller.signal
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`)
-        }
-
-        const data = await response.text()
-        setBackendMessage(data)
-      } catch (error) {
-        if (error.name === 'AbortError') {
-          return
-        }
-
-        console.error('Backend connection error:', error)
-
-        setBackendMessage(
-          'Backend connection failed. Check the backend and browser Console.'
-        )
-      }
-    }
-
-    checkBackend()
-
-    return () => {
-      controller.abort()
-    }
-  }, [])
   return (
     <div className="app">
       {/* NAVBAR */}
@@ -92,18 +45,6 @@ function Home() {
           </Link>
         </div>
       </header>
-
-      {/* BACKEND STATUS */}
-      <p
-        style={{
-          textAlign: 'center',
-          padding: '10px',
-          overflowWrap: 'anywhere'
-        }}
-        role="status"
-      >
-        Backend Status: {backendMessage}
-      </p>
 
       {/* HERO SECTION */}
       <section className="hero" id="home">
