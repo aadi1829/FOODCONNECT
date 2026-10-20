@@ -25,7 +25,7 @@ public class AIChatController {
         .build();
 
     private static final String GEMINI_MODEL =
-        "gemini-2.5-flash-lite";
+        "gemini-3.5-flash-lite";
 
     private static final String GEMINI_URL =
         "https://generativelanguage.googleapis.com/v1beta/models/"
