@@ -1,0 +1,85 @@
+
+.available-food-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  color: #24352b;
+  background: #f5faf6;
+  border-radius: 16px;
+}
+
+.available-food-container h2 {
+  color: #176b45;
+  font-size: 30px;
+}
+
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 25px;
+}
+
+.food-card {
+  background: white;
+  border: 1px solid #dce9df;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 5px 18px rgba(26, 77, 47, 0.08);
+}
+
+.food-card h3 {
+  color: #176b45;
+  font-size: 22px;
+}
+
+.food-card p {
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.request-food-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  color: white;
+  background: #198754;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.request-food-btn:hover {
+  background: #126b40;
+}
+
+.request-food-btn:disabled {
+  background: #8aab98;
+  cursor: not-allowed;
+}
+
+.request-message {
+  padding: 14px;
+  border-radius: 8px;
+  background: #eaf7ee;
+  color: #176b45;
+}
+
+.available-food-container a {
+  color: #176b45;
+  text-decoration: none;
+}
+
+.available-food-container a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .available-food-container {
+    margin: 16px auto;
+    padding: 16px;
+  }
+}
